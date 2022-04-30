@@ -171,7 +171,7 @@ public class CustomView extends View {
 
         canvas.restore();
 
-        drawLetters(Matrix.ch1);
+        //drawLetters(Matrix.ch1);
 
     }
 
@@ -209,9 +209,9 @@ public class CustomView extends View {
 
     public void drawLetters( int x[][]) {
         canvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.MULTIPLY);
-        int y = getHeight()/3;
+        int y = 700;
         for (int i = 0; i < x.length; i++) {
-            int z = getWidth()/4;
+            int z = 50;
             for (int j = 0; j < x[i].length; j++) {
                 if (x[i][j] == 0) {
                     z += 60;
@@ -222,6 +222,7 @@ public class CustomView extends View {
             }
             y += 60;
         }
+        invalidate();
     }
 
 

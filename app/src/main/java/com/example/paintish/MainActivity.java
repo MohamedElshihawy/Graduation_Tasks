@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
         clipboard = findViewById(R.id.clipboard);
         linearLayout = findViewById(R.id.linearLayout);
         Matrix matrix = new Matrix();
+        letterIndex = 0;
 
         show = false;
 
@@ -60,8 +61,10 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if(letterIndex<Matrix.letters.size())
                 {
-                    letterIndex +=1;
+
                     clipboard.drawLetters(Matrix.letters.get(letterIndex));
+                    letterIndex +=1;
+                    Log.i("TAG", "onClick: " + letterIndex );
                 }
                 else
                 {
@@ -76,8 +79,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if(letterIndex>0)
                 {
+
+                    clipboard.drawLetters(Matrix.letters.get(letterIndex));
                     letterIndex -=1;
-                    clipboard.drawLetters(Matrix.letters.get(letterIndex));}
+                }
+                else
+                {
+                    Toast.makeText(MainActivity.this, "No previous Letters ", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
